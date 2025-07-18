@@ -1,0 +1,53 @@
+# Arquivos de Sistema Operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Pastas de IDEs e Editores de Código
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node.js / Frontend (pasta x3)
+# Ignora a pasta de dependências que pode ser reinstalada com 'npm install'
+node_modules/
+
+# Ignora a pasta de build/distribuição
+dist/
+build/
+.next/
+
+# Ignora arquivos de log
+npm-debug.log*
+yarn-error.log
+yarn-debug.log
+
+# Ignora arquivos de ambiente que contêm segredos
+# ESTA É A REGRA MAIS IMPORTANTE PARA SUA SEGURANÇA!
+.env*
+!.env.example
+!.env.development
+!.env.production
+
+# Terraform (pasta x2/terraform)
+# Ignora arquivos de estado locais, que podem conter informações sensíveis.
+# Em um time, o ideal é usar um "backend" remoto.
+terraform.tfstate
+terraform.tfstate.backup
+*.tfplan
+
+# Ignora a pasta onde o Terraform baixa os provedores
+.terraform/
+
+# Arquivos de crash do Terraform
+crash.log
+
+# Python (caso use scripts mais complexos no futuro)
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+.env/
+*.egg-info/

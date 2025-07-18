@@ -1,13 +1,14 @@
 
 provider "google" {
-  project = var.project_id
+  project = "foundlab-core-460315"
   region  = "us-central1"
 }
 
 resource "google_storage_bucket" "foundlab_snapshots" {
-  name     = "foundlab-snapshots"
-  location = "US"
-  force_destroy = true
+  name                          = "foundlab-snapshots-alpha" 
+  location                      = "US"
+  force_destroy                 = true
+  uniform_bucket_level_access = true 
 }
 
 resource "google_bigquery_dataset" "foundlab" {
@@ -23,7 +24,7 @@ resource "google_bigquery_table" "snapshot_alpha" {
   table_id   = "reputation_snapshot_alpha"
   deletion_protection = false
 
-  schema = file("${path.module}/../foundlab_bigquery_schema.json")
+  schema = file("${path.module}/../data/foundlab_bigquery_schema.json")
 
   time_partitioning {
     type = "DAY"
