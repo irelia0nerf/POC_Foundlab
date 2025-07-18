@@ -1,0 +1,16 @@
+timestamp,wallet,origin_type,origin_label,to,protocol_type,token,value,action,risk_score,flags,verdict,justification
+2025-06-19T13:00:00Z,0xdeadbeef0000,Wallet,CustUser-A1,0xprotocoldest000,Liquidity Hub,wETH,,Transfer,48,"['FLG-MIXER-002', 'FLG-SYBIL-001']",BLOCK,Risco elevado detectado por múltiplas flags críticas.
+2025-06-19T13:05:00Z,0xdeadbeef0001,CEX,CEX-Binance-KYC,0xprotocoldest001,Shield,SilentUSD,,Approve,80,['FLG-BOT-SIGNATURE-009'],BLOCK,Risco elevado detectado por múltiplas flags críticas.
+2025-06-19T13:10:00Z,0xdeadbeef0002,Contract,SmartWallet-Railgun,0xprotocoldest002,Shield,wETH,,Swap,86,['FLG-OBFUSCATED-004'],REVIEW,Comportamento atípico identificado; análise manual recomendada.
+2025-06-19T13:15:00Z,0xdeadbeef0003,Mixer,Obfuscator-X,0xprotocoldest003,ZK Rollup,Railbyte,186.62,Approve,48,['FLG-OBFUSCATED-004'],REVIEW,Comportamento atípico identificado; análise manual recomendada.
+2025-06-19T13:20:00Z,0xdeadbeef0004,DAO,NightDAO-Multisig,0xprotocoldest004,DAO,NovaSett,,Transfer,57,['FLG-OBFUSCATED-004'],REVIEW,Comportamento atípico identificado; análise manual recomendada.
+2025-06-19T13:25:00Z,0xdeadbeef0005,Stealth,StealthChain-ZK,0xprotocoldest005,DAO,SilentUSD,,Transfer,81,[],ALLOW,Nenhuma anomalia crítica identificada. Permissão concedida.
+2025-06-19T13:30:00Z,0xdeadbeef0006,Bridge,ZKBridge-Relay,0xprotocoldest006,Shield,NovaSett,204.8,Swap,88,['FLG-BOT-SIGNATURE-009'],ALLOW,Nenhuma anomalia crítica identificada. Permissão concedida.
+2025-06-19T13:35:00Z,0xdeadbeef0007,Bot,Botnet-Control-Y,0xprotocoldest007,Liquidity Hub,USDC,359.67,Transfer,77,"['FLG-MIXER-002', 'FLG-SYBIL-001']",ALLOW,Nenhuma anomalia crítica identificada. Permissão concedida.
+2025-06-19T13:40:00Z,0xdeadbeef0008,CEX,CEX-KuCoin-KYC,0xprotocoldest008,DEX,NovaSett,436.58,Stake,52,[],REVIEW,Comportamento atípico identificado; análise manual recomendada.
+2025-06-19T13:45:00Z,0xdeadbeef0009,Wallet,PowerUser-Z,0xprotocoldest009,DAO,Railbyte,124.52,Swap,79,['FLG-BOT-SIGNATURE-009'],ALLOW,Nenhuma anomalia crítica identificada. Permissão concedida.
+2025-06-19T13:50:00Z,0xdeadbeef0010,Contract,VaultExecutor-V2,0xprotocoldest010,Mixer,SilentUSD,278.72,Approve,45,[],BLOCK,Risco elevado detectado por múltiplas flags críticas.
+2025-06-19T13:55:00Z,0xdeadbeef0011,Wallet,CustUser-X,0xprotocoldest011,CEX,USDC,329.0,Approve,78,['FLG-BRIDGE-DARK-007'],ALLOW,Nenhuma anomalia crítica identificada. Permissão concedida.
+2025-06-19T14:00:00Z,0xdeadbeef0012,DAO,DeFiGov-Node7,0xprotocoldest012,ZK Rollup,Railbyte,407.4,Stake,52,['FLG-ZK-ANON-003'],REVIEW,Comportamento atípico identificado; análise manual recomendada.
+2025-06-19T14:05:00Z,0xdeadbeef0013,Bridge,DarkBridge-Gamma,0xprotocoldest013,Vault,SilentUSD,174.47,Stake,60,['FLG-BOT-SIGNATURE-009'],BLOCK,Risco elevado detectado por múltiplas flags críticas.
+2025-06-19T14:10:00Z,0xdeadbeef0014,Wallet,GhostWallet-33,0xprotocoldest014,Aggregator,Railbyte,,Approve,82,['FLG-DAO-SPAM-005'],ALLOW,Nenhuma anomalia crítica identificada. Permissão concedida.

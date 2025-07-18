@@ -1,0 +1,605 @@
+
+:root {
+    --background-color: #f4f7f9; /* Light, clean background */
+    --card-background-color: #ffffff;
+    --text-color: #333333;
+    --text-secondary-color: #555555;
+    --primary-color: #0052cc; /* Professional Blue (Atlassian-like) */
+    --primary-hover-color: #0041a3;
+    --secondary-color: #ffab00; /* Amber for secondary actions */
+    --secondary-hover-color: #ff8b00;
+    --tertiary-color: #4CAF50; /* Green for save/success actions */
+    --tertiary-hover-color: #45a049;
+    --border-color: #dfe1e5; /* Softer border */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --error-color: #d93025; /* Google's Red for errors */
+    --success-color: #1e8e3e;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    --border-radius: 6px;
+    --input-background: #FAFBFC;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 24px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.lobby-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.lobby-header h1 {
+    font-size: 2.2em;
+    font-weight: 600;
+    color: #172B4D; /* Darker blue for headings */
+}
+
+.lobby-container {
+    width: 100%;
+    max-width: 1280px; /* Increased max-width for better layout */
+    margin: 0 auto;
+    flex-grow: 1;
+    display: flex;
+    gap: 24px; /* Gap between selection and interaction areas */
+}
+
+#ai-selection-area {
+    flex: 1;
+    min-width: 320px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Min card width increased slightly */
+    gap: 20px; /* Increased gap */
+}
+
+.ai-card {
+    background-color: var(--card-background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: 0 1px 3px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.ai-card:hover:not(.active) {
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.ai-card.active {
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0, 82, 204, 0.2);
+}
+
+.ai-name {
+    font-size: 1.25em; 
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.ai-role {
+    font-size: 0.875em; 
+    margin-bottom: 12px;
+    color: var(--text-secondary-color);
+    min-height: 40px; 
+}
+
+.ai-prompt-label { 
+    font-size: 0.8em;
+    font-weight: 600;
+    color: #6B778C; 
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+.ai-prompt-text { 
+    font-size: 0.8em;
+    font-style: italic;
+    background-color: #F4F5F7; 
+    padding: 8px;
+    border-radius: 3px;
+    border-left: 3px solid var(--border-color);
+    margin-bottom: 12px;
+    color: #42526E; 
+}
+
+.custom-prompt-section {
+    margin-top: 8px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-prompt-input {
+    width: 100%;
+    padding: 8px;
+    font-family: var(--font-family);
+    font-size: 0.85em;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--input-background);
+    box-sizing: border-box;
+    resize: vertical;
+    min-height: 60px;
+    margin-bottom: 8px;
+}
+
+.custom-prompt-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.2);
+}
+
+.prompt-template-section {
+    margin-top: 8px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.prompt-template-label {
+    font-size: 0.8em;
+    font-weight: 600;
+    color: #6B778C; 
+    margin-bottom: 2px;
+}
+
+.prompt-template-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.prompt-template-select {
+    flex-grow: 1;
+    padding: 8px;
+    font-family: var(--font-family);
+    font-size: 0.85em;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--input-background);
+}
+
+.save-template-button {
+    padding: 8px 12px;
+    font-size: 0.8em;
+    background-color: var(--tertiary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    white-space: nowrap;
+}
+.save-template-button:hover:not(:disabled) {
+    background-color: var(--tertiary-hover-color);
+}
+.save-template-button:disabled {
+    background-color: #A5ADBA; 
+    cursor: not-allowed;
+}
+
+
+.card-actions {
+    margin-top: auto; 
+    padding-top: 12px; 
+    display: flex;
+    gap: 10px; 
+    flex-wrap: wrap; 
+}
+
+.ai-action-button {
+    color: white;
+    border: none;
+    padding: 10px 12px; 
+    font-size: 0.85em; 
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-align: center;
+    flex-grow: 1; 
+    min-width: 120px; 
+}
+
+.ai-action-button.activate-ai-button {
+    background-color: var(--primary-color);
+}
+.ai-action-button.activate-ai-button:hover:not(:disabled) {
+    background-color: var(--primary-hover-color);
+}
+
+.ai-action-button.custom-prompt-execute-button {
+    background-color: var(--secondary-color); 
+}
+.ai-action-button.custom-prompt-execute-button:hover:not(:disabled) {
+    background-color: var(--secondary-hover-color);
+}
+
+
+.ai-action-button:disabled {
+    background-color: #A5ADBA; 
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.ai-card.active .activate-ai-button {
+    background-color: var(--success-color); 
+}
+.ai-card.active .activate-ai-button:hover:not(:disabled) {
+    background-color: #1A7E3A;
+}
+
+
+/* Interaction Area */
+.interaction-area {
+    flex: 1.5; 
+    background-color: var(--card-background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0; 
+    box-shadow: 0 1px 3px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 400px; 
+    max-height: 80vh; 
+}
+
+.interaction-header {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 10px;
+}
+
+.interaction-header h3 {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--primary-color);
+    flex-shrink: 0; /* Prevent title from shrinking too much */
+}
+
+.interaction-header-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+}
+
+.export-options {
+    display: flex;
+    gap: 5px; /* Smaller gap between export buttons */
+}
+
+.header-action-button {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary-color);
+    padding: 6px 10px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.8em;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+.header-action-button:hover:not(:disabled) {
+    background-color: #F4F5F7;
+    border-color: #C1C7D0;
+}
+.header-action-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+.chat-log {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.chat-placeholder {
+    color: var(--text-secondary-color);
+    font-style: italic;
+    text-align: center;
+    margin: auto; 
+    padding: 20px;
+}
+
+.chat-message {
+    padding: 10px 14px;
+    border-radius: var(--border-radius);
+    max-width: 80%;
+    word-wrap: break-word;
+    line-height: 1.5;
+}
+
+.chat-message .message-timestamp {
+    display: block;
+    font-size: 0.7em;
+    color: var(--text-secondary-color);
+    margin-top: 5px;
+    text-align: right;
+}
+.chat-message.user-message .message-timestamp {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+.chat-message.user-message {
+    background-color: var(--primary-color);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px; 
+}
+
+.chat-message.ai-message {
+    background-color: #F4F5F7; 
+    color: var(--text-color);
+    align-self: flex-start;
+    border-bottom-left-radius: 2px; 
+}
+
+.chat-message.summary-message {
+    background-color: #E6F7FF; /* Light blue for summaries */
+    color: #0052CC; /* Primary color text for summaries */
+    border: 1px dashed var(--primary-color);
+    align-self: stretch; /* Make summary take full width */
+    max-width: 100%;
+}
+.chat-message.summary-message .message-timestamp {
+    color: #0052CC;
+}
+
+
+.chat-message strong { 
+    font-weight: 500;
+}
+.chat-message.ai-message > strong:first-child { 
+    color: var(--primary-color);
+}
+.chat-message.summary-message > strong:first-child {
+    color: #003380; /* Darker blue for summary title */
+}
+.chat-message pre {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.chat-message code:not(pre code) { 
+    background-color: #e9ecef;
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    border-radius: 3px;
+}
+
+/* File Upload Area */
+.file-upload-area {
+    padding: 0px 20px 10px 20px; /* Padding around the file input elements */
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-input-label {
+    padding: 8px 12px;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.85em;
+    opacity: 0.6; /* Indicate it's not fully functional */
+    pointer-events: none; /* Disable interaction for now */
+}
+/*
+.file-input-label:hover {
+    background-color: var(--secondary-hover-color);
+}
+*/
+
+.file-input {
+    display: none; /* Hide the actual file input */
+}
+
+.file-name-display {
+    font-size: 0.8em;
+    color: var(--text-secondary-color);
+    font-style: italic;
+}
+
+
+.chat-form {
+    display: flex;
+    padding: 12px 20px;
+    border-top: 1px solid var(--border-color);
+    gap: 10px;
+}
+
+.chat-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
+    font-size: 0.95em;
+    resize: none;
+    background-color: var(--input-background);
+}
+.chat-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.2);
+}
+
+.send-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0 16px; 
+    font-size: 0.95em;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; 
+}
+
+.send-button:hover:not(:disabled) {
+    background-color: var(--primary-hover-color);
+}
+
+.send-button:disabled {
+    background-color: #A5ADBA;
+    cursor: not-allowed;
+}
+
+.send-icon {
+    /* Styles for the SVG icon if needed, like fill color if not set by currentColor */
+}
+
+
+.loading-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+    color: var(--text-secondary-color);
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.spinner {
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 3px solid var(--primary-color);
+    width: 18px;
+    height: 18px;
+    animation: spin 0.8s linear infinite;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-message {
+    color: var(--error-color);
+    font-weight: 500;
+    text-align: center;
+    padding: 10px;
+    background-color: #FCE8E6; 
+    border: 1px solid var(--error-color);
+    border-radius: var(--border-radius);
+    margin: 10px 20px; 
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 900px) { 
+    .lobby-container {
+        flex-direction: column;
+    }
+    #ai-selection-area, .interaction-area {
+        flex: none; 
+        width: 100%;
+    }
+    .interaction-area {
+        min-height: 300px;
+         max-height: 70vh; /* Adjusted for smaller screens */
+    }
+     .interaction-header h3 {
+        width: 100%; /* Title takes full width on small screens before actions wrap */
+        margin-bottom: 10px; /* Space if actions wrap */
+        text-align: center;
+    }
+    .interaction-header-actions {
+        width: 100%;
+        justify-content: center; /* Center buttons if they wrap */
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 16px;
+    }
+    .lobby-header h1 {
+        font-size: 1.8em;
+    }
+    .cards-grid {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+    .ai-name {
+        font-size: 1.15em;
+    }
+    .ai-action-button {
+        font-size: 0.9em; /* Ensure buttons are not too small */
+        padding: 10px;
+    }
+    .prompt-template-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .save-template-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .export-options {
+        flex-direction: column; /* Stack export buttons vertically */
+        width: 100%;
+    }
+    .export-options .header-action-button {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .interaction-header-actions {
+        flex-direction: column; /* Stack all header actions */
+    }
+    .interaction-header-actions > .header-action-button:not(.export-options button) { /* Exclude buttons already in export-options */
+         width: 100%;
+        text-align: center;
+    }
+}

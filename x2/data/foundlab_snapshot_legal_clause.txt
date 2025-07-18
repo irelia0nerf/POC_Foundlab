@@ -1,0 +1,1 @@
+Cláusula 7.2 – A infraestrutura reputacional da FoundLab poderá ser utilizada como critério automático de bloqueio, liberação ou revisão de transações financeiras em ambientes híbridos, conforme integração técnica previamente validada.

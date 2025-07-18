@@ -1,0 +1,143 @@
+
+{
+  "projectName": "FoundLab IA Lobby - Evolution Blueprint",
+  "releases": [
+    {
+      "version": "1.2.x",
+      "codename": "Persistência, Templates & Análise Inicial",
+      "status": "Algumas funcionalidades já em v1.2.0; esta release foca em complementos e aprofundamento.",
+      "focus": "Aprimorar a experiência do usuário com persistência de dados, reutilização de prompts e iniciar capacidades analíticas.",
+      "keyPerformanceIndicators": [
+        "Aumento de X% no uso de templates de prompts salvos.",
+        "Redução de Y% no tempo reportado para revisões de chat devido à sumarização (quando implementada)."
+      ],
+      "uxTestingNotes": "Coleta de feedback contínuo sobre a usabilidade das funcionalidades de persistência e exportação. Testes formais para a feature de sumarização.",
+      "technicalRefinementFocus": "Otimização das queries de localStorage para grandes históricos; análise de performance do parsing de JSON na exportação.",
+      "internalRolloutConsiderations": "Sessão de demonstração das novas funcionalidades de exportação e sumarização para a equipe. Atualização da documentação interna.",
+      "features": [
+        {
+          "id": "FV12_LOG_AUDIT",
+          "name": "Enhanced Interaction Logging with Audit Level",
+          "description": "Introduzir um nível de log 'audit' para IAs críticas, detalhando prompts e, se possível, etapas de raciocínio simplificadas. Expandir o `logInteraction` existente.",
+          "priority": "P1 (★★★★★)",
+          "teams": ["Dev", "CEO/Product"],
+          "notes": "Base para o 'Modo Auditoria' mais avançado."
+        },
+        {
+          "id": "FV12_SUMMARIZE",
+          "name": "Sumarização Automática de Conversas (Pós-Sessão)",
+          "description": "Ao final de uma sessão de chat, permitir ao usuário acionar uma função para a IA ativa gerar um resumo dos pontos chave, decisões e próximos passos.",
+          "priority": "P1 (★★★★★)",
+          "teams": ["Dev", "Product"]
+        },
+        {
+          "id": "FV12_EXPORT_PLUS",
+          "name": "Exportação de Diálogos (Formatos Adicionais)",
+          "description": "Expandir a funcionalidade de exportação de histórico de chat para incluir formatos PDF e Markdown, além do JSON existente.",
+          "priority": "P2 (★★★★)",
+          "teams": ["Dev"]
+        }
+      ]
+    },
+    {
+      "version": "1.3.0",
+      "codename": "Integrações e Builder",
+      "status": "Planejada",
+      "focus": "Conectar o Lobby com ferramentas externas de produtividade e empoderar usuários com a capacidade de criar e configurar suas próprias IAs.",
+      "keyPerformanceIndicators": [
+        "X novas IAs criadas por usuários através do IA Builder no primeiro mês.",
+        "Y% das IAs de Operações/Relações Externas utilizando as integrações (Calendar/Gmail) ativamente."
+      ],
+      "uxTestingNotes": "Testes de usabilidade dedicados para o IA Builder e para o fluxo de configuração das integrações com APIs externas.",
+      "technicalRefinementFocus": "Modularização do código do IA Builder; criação de abstrações para interagir com diferentes APIs de terceiros (Google, etc.).",
+      "internalRolloutConsiderations": "Workshops de treinamento para o IA Builder e para as novas integrações. Documentação detalhada dos processos de configuração.",
+      "features": [
+        {
+          "id": "FV13_INTEGRATE_CALENDAR_TASKS",
+          "name": "Integração com Google Calendar / Trello",
+          "description": "Permitir que IAs de Operações (ex: Fernanda) interajam com Google Calendar (criar eventos) ou Trello/Asana (criar tarefas) via API.",
+          "priority": "P2 (★★★★)",
+          "teams": ["Dev", "Ops"]
+        },
+        {
+          "id": "FV13_INTEGRATE_EMAIL",
+          "name": "Integração com Gmail Draft",
+          "description": "Permitir que IAs de Relações Externas (ex: Raíssa) rascunhem e-mails e os preparem como drafts no Gmail do usuário via API.",
+          "priority": "P2 (★★★★)",
+          "teams": ["Dev", "Bridge/Partnerships"]
+        },
+        {
+          "id": "FV13_IA_BUILDER",
+          "name": "IA Builder (Criação de Novas IAs via UI)",
+          "description": "Interface (modal ou página dedicada) para usuários autorizados criarem novas IAs, definindo nome, função, basePrompt, modelo base e temperatura. Salvar novas IAs no aiProfiles.json ou em um backend.",
+          "priority": "P1 (★★★★★)",
+          "teams": ["Dev", "Product"]
+        },
+        {
+          "id": "FV13_MODEL_PLAYGROUND",
+          "name": "Playground de Modelos Gemini",
+          "description": "Área de experimentação livre onde usuários podem interagir diretamente com diferentes modelos Gemini, testando prompts sem o contexto de uma IA específica do Lobby.",
+          "priority": "P2 (★★★★)",
+          "teams": ["Dev", "Tech Team"]
+        },
+        {
+          "id": "FV13_TEMP_CONTROL",
+          "name": "Controle de Temperatura/Criatividade por IA",
+          "description": "Adicionar um slider ou input numérico nas configurações da IA (Builder) e/ou dinamicamente em IAs ativas (para IAs criativas) para ajustar a temperatura da API Gemini.",
+          "priority": "P3 (★★★)",
+          "teams": ["Dev"]
+        }
+      ]
+    },
+    {
+      "version": "1.4.0",
+      "codename": "Controles e Governança",
+      "status": "Planejada",
+      "focus": "Implementar mecanismos robustos de controle de acesso, monitoramento de uso e custos, e funcionalidades colaborativas para solidificar o Lobby como uma plataforma enterprise-ready. Pode incluir a migração para uma fundação de backend mais robusta (ex: Firebase para Auth/DB).",
+      "keyPerformanceIndicators": [
+        "Implementação de X papéis de acesso (RBAC) cobrindo todos os cenários de uso previstos.",
+        "Redução de Z% em incidentes de acesso indevido ou uso não autorizado de IAs."
+      ],
+      "uxTestingNotes": "Testes de aceitação com stakeholders para as funcionalidades de RBAC e painel de monitoramento. Avaliação da experiência de colaboração na biblioteca de prompts.",
+      "technicalRefinementFocus": "Arquitetura de autenticação e autorização; design do esquema de dados para logs e métricas de uso no backend; refatoração de componentes para suportar RBAC.",
+      "internalRolloutConsiderations": "Comunicação clara sobre as novas políticas de acesso. Treinamento para administradores sobre o painel de monitoramento e gestão de papéis.",
+      "features": [
+        {
+          "id": "FV14_RBAC",
+          "name": "RBAC (Role-Based Access Control)",
+          "description": "Implementar controle de acesso baseado em papéis (ex: via Firebase Authentication ou outro IdP) para restringir quais usuários podem interagir com quais IAs ou acessar funcionalidades administrativas.",
+          "priority": "P1 (★★★★★)",
+          "teams": ["Dev", "Security", "Product"]
+        },
+        {
+          "id": "FV14_USAGE_DASHBOARD",
+          "name": "Painel de Monitoramento de Uso e Custos",
+          "description": "Dashboard administrativo para visualizar métricas de uso da API Gemini (tokens, número de prompts) por IA, por usuário (se autenticado), e estimativas de custo associadas.",
+          "priority": "P2 (★★★★)",
+          "teams": ["Dev", "Finance/Ops"]
+        },
+        {
+          "id": "FV14_SHARED_PROMPTS",
+          "name": "Biblioteca de Prompts Compartilhados",
+          "description": "Funcionalidade para usuários salvarem seus prompts customizados em uma biblioteca interna, categorizada por IA ou tema, e compartilhá-los com outros membros da equipe.",
+          "priority": "P2 (★★★★)",
+          "teams": ["Dev", "Product"]
+        },
+        {
+          "id": "FV14_INTERNAL_FORUM",
+          "name": "Fórum Interno / Base de Conhecimento",
+          "description": "Módulo simples de fórum ou Q&A para os usuários do Lobby compartilharem dicas, solucionarem dúvidas e discutirem melhores práticas de uso das IAs.",
+          "priority": "P3 (★★★)",
+          "teams": ["Dev/Community Manager", "Product"]
+        },
+        {
+          "id": "FV14_AUDIT_MODE_ADVANCED",
+          "name": "Modo Auditoria Avançado",
+          "description": "Evoluir o log de auditoria com capacidade de registrar trilhas de raciocínio mais detalhadas da IA (se a API permitir introspecção) e apresentar esses logs de forma estruturada, possivelmente em uma UI dedicada.",
+          "priority": "P1 (★★★★★)",
+          "teams": ["Dev", "CEO/Product", "Legal/Compliance"]
+        }
+      ]
+    }
+  ]
+}

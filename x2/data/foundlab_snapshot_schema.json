@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FoundLab Reputation Snapshot Entry",
+  "type": "object",
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "wallet": {
+      "type": "string"
+    },
+    "origin_type": {
+      "type": "string"
+    },
+    "origin_label": {
+      "type": "string"
+    },
+    "to": {
+      "type": "string"
+    },
+    "protocol_type": {
+      "type": "string"
+    },
+    "token": {
+      "type": "string"
+    },
+    "value": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "action": {
+      "type": "string"
+    },
+    "risk_score": {
+      "type": "integer"
+    },
+    "flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verdict": {
+      "type": "string"
+    },
+    "justification": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "timestamp",
+    "wallet",
+    "origin_type",
+    "origin_label",
+    "to",
+    "protocol_type",
+    "token",
+    "action",
+    "risk_score",
+    "flags",
+    "verdict",
+    "justification"
+  ]
+}

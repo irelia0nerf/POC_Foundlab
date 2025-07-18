@@ -1,0 +1,67 @@
+[
+  {
+    "name": "timestamp",
+    "type": "TIMESTAMP",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "wallet",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "origin_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "origin_label",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "to",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "protocol_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "token",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "value",
+    "type": "FLOAT",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "action",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "risk_score",
+    "type": "INTEGER",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "flags",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "verdict",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "justification",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  }
+]
