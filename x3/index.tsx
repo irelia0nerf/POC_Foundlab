@@ -7,7 +7,7 @@ import { GoogleGenAI, Chat, GenerateContentResponse } from '@google/genai';
 import { jsPDF } from 'jspdf';
 
 // Ensure API_KEY is correctly sourced from environment variables
-const apiKey = process.env.GEMINI_API_KEY;
+const apiKey = process.env.AIzaSyArrpR6DhDh_Kdw35P-vDlmSKpmrY0pSVo;
 const globalErrorMessageElement = document.getElementById('error-message'); // For global config errors
 
 if (!apiKey) {
